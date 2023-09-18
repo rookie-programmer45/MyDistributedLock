@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljc.dao.StockDao">
+
+    <resultMap id="Stock" type="com.ljc.model.Stock">
+        <id column="id" property="id"/>
+        <result column="good_id" property="goodId"/>
+        <result column="count" property="count"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <select id="getStock" resultMap="Stock">
+        select * from stock
+        where good_id = #{goodId}
+    </select>
+
+    <update id="updateCount">
+        update stock set count = #{count}, version = #{version} + 1
+        where good_id = #{goodId} and version = #{version}
+    </update>
+</mapper>

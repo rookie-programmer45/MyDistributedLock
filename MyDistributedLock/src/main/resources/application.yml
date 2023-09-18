@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: distributedLock
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/db1?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: ljcbarce
+  redis:
+    host: localhost
+    port: 6379
+
+##mybatis
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  configuration:
+    call-setters-on-nulls: true
